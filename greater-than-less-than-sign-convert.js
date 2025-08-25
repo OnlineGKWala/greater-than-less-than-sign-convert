@@ -17,4 +17,8 @@ document.addEventListener('keydown', (e) => {
      if(e.code === 'Space' || e.code === 'Backspace'){
         output.value = '';
     }
+function copyOutput(){
+  navigator.clipboard.writeText(document.getElementById('output').textContent);
+  alert("Copied HTML! Paste into Blogger post.");
+}
 });
