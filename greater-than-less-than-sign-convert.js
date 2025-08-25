@@ -1,4 +1,3 @@
-
 const input = document.getElementById('inputText');
 const output = document.getElementById('outputText');
 const convertBtn = document.getElementById('convertBtn');
@@ -12,15 +11,14 @@ convertBtn.addEventListener('click', () => {
     output.select();
 });
 
-// Clear output on space key press
+// Clear output on ESC or Ctrl+Space
 document.addEventListener('keydown', (e) => {
-     if(e.code === 'Space' || e.code === 'Backspace'){
+    if ((e.ctrlKey && e.code === 'Space') || e.code === 'Escape') {
         output.value = '';
     }
 });
 
-
-function copyOutput(){
-  navigator.clipboard.writeText(document.getElementById('output').textContent);
-  alert("Copied HTML! Paste into Blogger post.");
+function copyOutput() {
+  navigator.clipboard.writeText(output.value);
+  alert("Copied HTML! Paste into your File.");
 }
